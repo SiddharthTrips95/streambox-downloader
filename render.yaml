@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: streambox-yt-downloader
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_STATIC
+        value: "true"
+      - key: CORS_ORIGIN
+        value: "*"
